@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="Class8Demo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Class8Demo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <local:Converter x:Key="mConverter"/>
+    </Page.Resources>
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBox Name="BoxOne"></TextBox>
+                    <TextBox  Grid.Row="1"  Name="BoxTwo" Text="{Binding ElementName=BoxOne,Path=Text,Mode=OneWay,Converter={StaticResource mConverter}}"></TextBox>
+                </Grid>
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ListView Name="mListView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <!--绑定数据的模板-->
+                                <TextBlock Text="{Binding Name}" FontSize="20"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Grid.Row="1" Click="Button_Click">添加</Button>
+                </Grid>
+                <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                    <Button Content="Getstart" Click="GetstartButton_Click"></Button>
+                    <Button Content="Poststart" Click="PoststartButton_Click"></Button>
+                    <Button Content="HttpClientGetstart" Click="HttpClientGetstartButton_Click"></Button>
+                    <Button Content="HttpClientPoststart" Click="HttpClientPoststartButton_Click"></Button>
+                    <TextBox Name="qq_text" TextWrapping="Wrap"></TextBox>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>
