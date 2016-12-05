@@ -13,7 +13,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="#363636">
-            <AutoSuggestBox Name="SearchBox" VerticalAlignment="Center" Margin="20,0" PlaceholderText="请输入搜索信息" QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted"/>
+            <AutoSuggestBox Name="SearchBox" VerticalAlignment="Center" Margin="20,0" PlaceholderText="请输入搜索图书信息" QueryIcon="Find" QuerySubmitted="SearchBox_QuerySubmitted"/>
         </Grid>
         <Grid Grid.Row="1" Background="#585858">
             <ListView Name="ResultListView">
