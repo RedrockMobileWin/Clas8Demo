@@ -13,32 +13,32 @@ namespace CsharpDemo
         static bool done;
         static void Main(string[] args)
         {
-            //#region Thread Demo 1
-            //Thread t1 = new Thread(p =>
-            //{
-            //    for (int i = 0; i < 10; i++)
-            //    {
-            //        Console.WriteLine(1);
-            //        Thread.Sleep(100);
-            //    }
-            //});
-            //t1.Start();
-            //#endregion
+            #region Thread Demo 1
+            Thread t1 = new Thread(p =>
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.WriteLine(1);
+                    Thread.Sleep(100);
+                }
+            });
+            t1.Start();
+            #endregion
 
-            //#region Thread Demo 2
-            //new Thread(Go).Start(); //在新线程调用Go()
-            //Go(); //在主线程调用Go()
-            //#endregion
+            #region Thread Demo 2
+            new Thread(Go).Start(); //在新线程调用Go()
+            Go(); //在主线程调用Go()
+            #endregion
 
-            //#region issue Demo
-            //new Thread(Run).Start(); //在新线程调用Run()
-            //Run(); //在主线程调用Run()
-            //#endregion
+            #region issue Demo
+            new Thread(Run).Start(); //在新线程调用Run()
+            Run(); //在主线程调用Run()
+            #endregion
 
-            //#region right Demo
-            //new Thread(mLocker).Start(); //在新线程调用mLocker()
-            //mLocker(); //在主线程调用mLocker()
-            //#endregion
+            #region right Demo
+            new Thread(mLocker).Start(); //在新线程调用mLocker()
+            mLocker(); //在主线程调用mLocker()
+            #endregion
 
             #region Async Demo
             AsyncPrint();
